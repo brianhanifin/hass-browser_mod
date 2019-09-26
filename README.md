@@ -29,6 +29,33 @@ browser_mod:
 
 - Restart Home Assistant
 
+## Verifying your installation
+
+### Developer Tools > Services
+
+* Service: `browser_mod.command`
+* Service Data:
+```
+{
+  "command": "debug"
+}
+```
+* Click the `Call service` button.
+* If a popup appears you now have your `deviceID`!
+
+### Lovelace
+Here is an example button which will turn the page black.
+```
+- type: entity-button
+  entity: light.family_room
+  name: TEST
+  tap_action:
+    action: call-service
+    service: browser_mod.command
+    service_data:
+      command: blackout
+```
+
 # Usage
 
 ## Devices
